@@ -1,2 +1,4 @@
 # VEL-ChIPseq
-VEL VRN3 ChIPseq study
+VRN5 and VIN3/VEL1 ChIP-seq study and the associated scripts.
+
+
