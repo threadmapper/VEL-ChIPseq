@@ -53,7 +53,27 @@ sample-attributes-Plant.1.0_MLN-added-description.xlsx  [we uploaded this ]
 ```
 
 Mapping read to the genome refernce
-------------------------------------
+-----------------------------------
+
+- We mapped the reads to TAIR10 reference genome
+- Indexing and mapping was done using `bwa-0.5.7` and the samtools version(1.6)
+
+```bash
+Typical run: 
+# mappign output to sai files 
+bwa  aln -t 8  -l 25  -k 2  -n 5    tair10-genome.fasta  15_9ColFRINVinp_1.fq.gz    > 15_9ColFRINVinp.sai
+# converting to sam 
+bwa  samse   tair10-genome.fasta   15_9ColFRINVinp.sai   15_9ColFRINVinp_1.fq.gz    > 15_9ColFRINVinp.sam
+# sam to sorted bam   
+samtools view -bt tair10-genome.fasta  -o 15_9ColFRINVinp.bam  15_9ColFRINVinp.sam
+samtools sort -o sorted-15_9ColFRINVinp.bam  15_9ColFRINVinp.bam
+samtools index sorted-15_9ColFRINVinp.bam 
+
+# Mapping stats wer found using  
+samtools flagstat sorted-15_9ColFRINVinp.bam 
+samtools view -F 0x04 -c sorted-15_9ColFRINVinp.bam 
+
+```
 
 
 
