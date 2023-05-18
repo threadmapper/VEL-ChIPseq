@@ -1,7 +1,7 @@
-cp ../31_7COIFRINVinput_1.fq.gz ColFRI-NV-For-GFP-ColFR-Rep1.fq.gz
-cp ../21_8FRINVinput_1.fq.gz ColFRI-NV-For-GFP-ColFR-Rep2.fq.gz
-cp ../9_9_FRI_NV_IP_1.fq.gz ColFRI-NV-for-ColFRI-FLAG-Rep1.fq.gz
-cp ../15_9_ColFRINVIP_1.fq.gz ColFRI-NV-for-ColFRI-FLAG-Rep2.fq.gz
+cp ../31_7COIFRINVinput_1.fq.gz ColFRI-NV-input-For-GFP-ColFR-Rep1.fq.gz
+cp ../21_8FRINVinput_1.fq.gz ColFRI-NV-input-For-GFP-ColFR-Rep2.fq.gz
+cp ../9_9_FRI_NV_IP_1.fq.gz ColFRI-NV-IP-for-ColFRI-FLAG-Rep1.fq.gz
+cp ../15_9_ColFRINVIP_1.fq.gz ColFRI-NV-IP-for-ColFRI-FLAG-Rep2.fq.gz
 cp ../12_8VEL1NVinput_1.fq.gz VEL1-FLAG-NV-input-rep1.fq.gz
 cp ../31_8VEL1NVinput_1.fq.gz VEL1-FLAG-NV-input-rep2.fq.gz
 cp ../23_9VEL1NVinput_1.fq.gz VEL1-FLAG-NV-input-rep3.fq.gz
@@ -22,10 +22,10 @@ cp ../VIN3GFP_input_2_1.fq.gz VIN3-eGFP-6WT0-input-rep3.fq.gz
 cp ../7_4VRN56W0input_1.fq.gz VRN5-YFP-6WT0-input-rep1.fq.gz
 cp ../7_4_VRN5_input_1.fq.gz VRN5-YFP-6WT0-input-rep2.fq.gz
 cp ../21_4_VRN5_Input_1.fq.gz VRN5-YFP-6WT0-input-rep3.fq.gz
-cp ../31_7_COIFRI_NV_IP_1.fq.gz ColFRI-NV-For-GFP-ColFR-Rep1.fq.gz
-cp ../21_8FRI_NV_IP_1.fq.gz ColFRI-NV-For-GFP-ColFR-Rep2.fq.gz
-cp ../9_9FRINVinput_1.fq.gz ColFRI-NV-for-ColFRI-FLAG-Rep1.fq.gz
-cp ../15_9ColFRINVinp_1.fq.gz ColFRI-NV-for-ColFRI-FLAG-Rep2.fq.gz
+cp ../31_7_COIFRI_NV_IP_1.fq.gz ColFRI-NV-IP-For-GFP-ColFR-Rep1.fq.gz
+cp ../21_8FRI_NV_IP_1.fq.gz ColFRI-NV-IP-For-GFP-ColFR-Rep2.fq.gz
+cp ../9_9FRINVinput_1.fq.gz ColFRI-NV-input-for-ColFRI-FLAG-Rep1.fq.gz
+cp ../15_9ColFRINVinp_1.fq.gz ColFRI-NV-input-for-ColFRI-FLAG-Rep2.fq.gz
 cp ../12_8_VEL1_NV_IP_1.fq.gz VEL1-FLAG-NV-rep1.fq.gz
 cp ../31_8_VEL1_NV_IP_1.fq.gz VEL1-FLAG-NV-rep2.fq.gz
 cp ../23_9_VEL1_NV_IP_1.fq.gz VEL1-FLAG-NV-rep3.fq.gz
