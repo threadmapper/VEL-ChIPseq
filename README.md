@@ -5,7 +5,8 @@ Mathias (Dean lab)
 
 
 # Raw reads data
-The single end fastq files are deposited to the SRA archived
+The single end fastq files are deposited to the SRA archived as `BioProject: PRJNA973989`
+titled `Functional specification of VEL accessory proteins in Arabidopsis Polycomb silencing`
 
 
 ```python
