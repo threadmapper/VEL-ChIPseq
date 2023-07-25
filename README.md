@@ -92,11 +92,13 @@ singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif   multiBigwigSummary bins --bin
 CLF and SWN 
 -----------
 
+```
 GSM2916533 	CLF-GFP Rep1
 GSM2916534 	CLF-GFP Rep2
 GSM2916535 	SWN-GFP Rep1
 GSM2916536 	SWN-GFP Rep2
 GSM2916537 	35S_GFP (input)
+```
 
 - Shu J, Chen C, Thapa RK, Bian S et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct 2019 Jan;3(1):e00100. PMID: 31245749
 -	Shu, J, Chen, C, Thapa, RK, et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct. 2019; 3: 1-14.
