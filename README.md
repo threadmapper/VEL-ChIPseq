@@ -89,5 +89,75 @@ singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif   multiBigwigSummary bins --bin
 
 
 
+CLF and SWN 
+-----------
+
+GSM2916533 	CLF-GFP Rep1
+GSM2916534 	CLF-GFP Rep2
+GSM2916535 	SWN-GFP Rep1
+GSM2916536 	SWN-GFP Rep2
+GSM2916537 	35S_GFP (input)
+
+- Shu J, Chen C, Thapa RK, Bian S et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct 2019 Jan;3(1):e00100. PMID: 31245749
+-	Shu, J, Chen, C, Thapa, RK, et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct. 2019; 3: 1-14.
+
+```
+
+# CLF and SWN 
+GSM2916533      CLF-GFP Rep1               SRX3544214 (GSM2916533: CLF-GFP Rep1; Arabidopsis thaliana; ChIP-Seq)
+GSM2916534      CLF-GFP Rep2               SRX3544215 
+
+GSM2916535      SWN-GFP Rep1               SRX3544216 
+GSM2916536      SWN-GFP Rep2               SRX3544217
+
+GSM2916537      35S_GFP (input) [control]  SRX3544218
+
+
+PRJNA429247     SAMN08332084    SRX3544214      SRR6453472      3702    Arabidopsis thaliana    ftp.sra.ebi.ac.uk/vol1/fastq/SRR645/002/SRR6453472/SRR6453472.fastq.gz          ftp.sra.ebi.ac.uk/vol1/srr/SRR645/002/SRR6453472
+PRJNA429247     SAMN08332083    SRX3544215      SRR6453473      3702    Arabidopsis thaliana    ftp.sra.ebi.ac.uk/vol1/fastq/SRR645/003/SRR6453473/SRR6453473.fastq.gz          ftp.sra.ebi.ac.uk/vol1/srr/SRR645/003/SRR6453473
+PRJNA429247     SAMN08332082    SRX3544216      SRR6453474      3702    Arabidopsis thaliana    ftp.sra.ebi.ac.uk/vol1/fastq/SRR645/004/SRR6453474/SRR6453474.fastq.gz          ftp.sra.ebi.ac.uk/vol1/srr/SRR645/004/SRR6453474
+PRJNA429247     SAMN08332081    SRX3544217      SRR6453475      3702    Arabidopsis thaliana    ftp.sra.ebi.ac.uk/vol1/fastq/SRR645/005/SRR6453475/SRR6453475.fastq.gz          ftp.sra.ebi.ac.uk/vol1/srr/SRR645/005/SRR6453475
+PRJNA429247     SAMN08332080    SRX3544218      SRR6453476      3702    Arabidopsis thaliana    ftp.sra.ebi.ac.uk/vol1/fastq/SRR645/006/SRR6453476/SRR6453476.fastq.gz          ftp.sra.ebi.ac.uk/vol1/srr/SRR645/006/SRR6453476
+
+srr2sample = {
+  'SRR6453472' : 'CLF-GFP-Rep1',
+  'SRR6453473' : 'CLF-GFP-Rep2',    
+  'SRR6453474' : 'SWN-GFP-Rep1',
+  'SRR6453475' : 'SWN-GFP-Rep2',
+  'SRR6453476' : '35S_GFP_input_control',
+}
+
+```
+
+
+
+
+- Raw reads from the Yuan et al(2021), where the 14-day-old seedling of VAL1 and VAL2 ChIP-seq, and 14-day-old seedling of H3K27me3 ChIP-seq of WT and val1val2 tp evidence extensive genome-wide interaction between VAL1/2 and PRC2.
+- Yuan L, Song X, Zhang L, Yu Y et al. The transcriptional repressors VAL1 and VAL2 recruit PRC2 for genome-wide Polycomb silencing in Arabidopsis. Nucleic Acids Res 2021 Jan 11;49(1):98-113. PMID: 33270882(https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE145387)
+
+```python
+	
+GSM4317615 	VAL1-GFP-val1-1
+GSM4317616 	VAL1-GFP-val1-2
+GSM4317617 	VAL1-GFP-val1-input
+
+GSM4317618 	VAL2-GFP-val2-1
+GSM4317619 	VAL2-GFP-val2-2
+GSM4317620 	VAL2-GFP-val2-input
+
+GSM4317621 	Col-0-1-input
+GSM4317622 	Col-0-H3K27me3-1
+GSM4317623 	Col-0-H3K27me3-2
+
+GSM4317624 	val1val2-1-input
+GSM4317625 	val1val2-H3K27me3-1
+GSM4317626 	val1val2-H3K27me3-2
+
+Relations
+BioProject 	PRJNA607059
+SRA 	SRP249704
+
+```
+
 
 
