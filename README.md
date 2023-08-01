@@ -166,10 +166,11 @@ Methods
 
 - Raw reads as fastq files can be downloaded from the SRA archive, file names and the samples named are under `metadata-13351040-submitted.tsv`
 - Files are downloaded to a directory and also the raw reads from the published above.
+- Fastqc-0.11.3 was run on each fastq file and the read were cleaned using `fastp`
 
 ```bash
-# Download fastq files as under
-metadata-13351040-submitted.tsv
+# Download fastq files as under 
+metadata-13351040-submitted.tsv (see column filename in this tab delimited file)
 
 # others raw reads
 [cheemaj@NBI-HPC interactive rename]$ pwd
@@ -192,6 +193,12 @@ VAL1-GFP-val1-Rep1_2.fq.gz
 VAL1-GFP-val1-Rep2_1.fq.gz
 VAL1-GFP-val1-Rep2_2.fq.gz
 [cheemaj@NBI-HPC interactive rename]$
+
+# read trimming and cleaning for SE reads were done
+singularity exec ~/BUILD/FASTP/fastp.simg fastp   --thread 8    --html=SRR6453474.html      -i SRR6453474.fastq.gz    -o   clean/SRR6453474.fastq.gz
+
+# read cleaning for PE was  done using the following 
+singularity exec /hpc-home/cheemaj/BUILD/FASTP/fastp.simg fastp   --thread 8  --detect_adapter_for_pe   --html=SRR8955909.html      -i SRR8955909_1.fastq.gz  -I  SRR8955909_2.fastq.gz -o   clean/SRR8955909_1.fastq.gz -O clean/SRR8955909_2.fastq.gz 
 
 ```
   
