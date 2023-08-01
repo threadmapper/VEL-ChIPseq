@@ -161,5 +161,40 @@ SRA 	SRP249704
 
 ```
 
+Methods 
+---------
+
+- Raw reads as fastq files can be downloaded from the SRA archive, file names and the samples named are under `metadata-13351040-submitted.tsv`
+- Files are downloaded to a directory and also the raw reads from the published above.
+
+```bash
+# Download fastq files as under
+metadata-13351040-submitted.tsv
+
+# others raw reads
+[cheemaj@NBI-HPC interactive rename]$ pwd
+/jic/scratch/groups/Caroline-Dean/jitender/mathias/swn-clf-val1-mapping/FQ/clean/rename
+[cheemaj@NBI-HPC interactive rename]$ ls -1
+40V_H3K27_me3_rep2_1.fq.gz
+40V_H3K27_me3_rep2_2.fq.gz
+40V_input_control_1.fq.gz
+40V_input_control_2.fq.gz
+H3K27me3_NV_1_1.fq.gz
+H3K27me3_NV_1_2.fq.gz
+H3K27me3_NV_2_1.fq.gz
+H3K27me3_NV_2_2.fq.gz
+NV_input_control_1.fq.gz
+NV_input_control_2.fq.gz
+VAL1-GFP-val1-input-control_1.fq.gz
+VAL1-GFP-val1-input-control_2.fq.gz
+VAL1-GFP-val1-Rep1_1.fq.gz
+VAL1-GFP-val1-Rep1_2.fq.gz
+VAL1-GFP-val1-Rep2_1.fq.gz
+VAL1-GFP-val1-Rep2_2.fq.gz
+[cheemaj@NBI-HPC interactive rename]$
+
+```
+  
+
 
 
