@@ -204,8 +204,8 @@ singularity exec /hpc-home/cheemaj/BUILD/FASTP/fastp.simg fastp   --thread 8  --
 
 ```
 
-Mapping clean to TAIR10 refence 
---------------------------------
+Mapping clean to TAIR10 reference 
+---------------------------------
 
 - We mapped to the tair10 genome (chromsomal) using `bwa-0.5.7` with slightly relaxed or the parameters `bwa aln -t 8  -l 25  -k 2  -n 5`
 - the resulting sam were converted to BAM via samtools-1.6 
