@@ -203,7 +203,61 @@ singularity exec ~/BUILD/FASTP/fastp.simg fastp   --thread 8    --html=SRR645347
 singularity exec /hpc-home/cheemaj/BUILD/FASTP/fastp.simg fastp   --thread 8  --detect_adapter_for_pe   --html=SRR8955909.html      -i SRR8955909_1.fastq.gz  -I  SRR8955909_2.fastq.gz -o   clean/SRR8955909_1.fastq.gz -O clean/SRR8955909_2.fastq.gz 
 
 ```
-  
+
+Mapping clean to TAIR10 refence 
+--------------------------------
+
+- We mapped to the tair10 genome (chromsomal) using `bwa-0.5.7` with slightly relaxed or the parameters `bwa aln -t 8  -l 25  -k 2  -n 5`
+- the resulting sam were converted to BAM via samtools-1.6 
+- BAM files were further processed at various stages with a combination of sambamba-1.0.0 and the samtools for further visualisation 
+
+
+```bash
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools flagstat ../BASE.bam > BASE.bam.stat 
+
+# Filtering and sorting the reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools view -@ 8  -F 772  -b ../BASE.bam  Chr1 Chr2 Chr3 Chr4 Chr5 -o FILTER/BASE.filter_unsorted.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools sort -o FILTER/BASE.filter.bam  FILTER/BASE.filter_unsorted.bam
+# Index filtered reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools  index    FILTER/BASE.filter.bam
+# keep the stats
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools  flagstat FILTER/BASE.filter.bam  > FILTER/BASE.filter.bam.stat
+
+# mark duplicates with picard
+singularity exec ~/BUILD/VERN/idr_bwa.sif picard MarkDuplicates I=FILTER/BASE.filter.bam O=FILTER/BASE.dupmark_unsorted.bam  M=FILTER/BASE.dup.qc  VALIDATION_STRINGENCY=LENIENT  REMOVE_DUPLICATES=false ASSUME_SORTED=true
+
+# sort reads after marking the duplicates
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -o FILTER/BASE.dupmark.bam  FILTER/BASE.dupmark_unsorted.bam
+# index the sorted reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    FILTER/BASE.dupmark.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat FILTER/BASE.dupmark.bam > FILTER/BASE.dupmark.bam.stat
+
+# remove duplicates
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools view -@ 8  -F 1796  -b FILTER/BASE.dupmark.bam -o  FILTER/BASE.dupmark.nodup_unsorted.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -o FINAL_BAM/BASE.bam  FILTER/BASE.dupmark.nodup_unsorted.bam
+# index unique reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  index     FINAL_BAM/BASE.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  flagstat  FINAL_BAM/BASE.bam >  FINAL_BAM/BASE.bam.stat
+
+# for visualisation of read mapping distribution across TSS and TES flanks
+
+(a) replication were merged with bamtools-2.5.2,  BASE.txt;containing the files names from the corresponding replicates
+ singularity exec ~/BUILD/VERN/idr_bwa.sif  bamtools merge -list BASE.txt  -out MERGED/BASE.bam
+ singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    MERGED/BASE.bam
+ singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat  MERGED/BASE.bam > MERGED/BASE.bam.stat
+
+(b) Bigwig file normalised for RPGC metric was generated using bamCoverage-3.5.1; 
+ mkdir -p BW100
+ singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif  bamCoverage --bam BASE.bam  -o BW100/BASE.bw  --binSize 100   --normalizeUsing RPGC    --effectiveGenomeSize 119146348  --filterRNAstrand forward  --numberOfProcessors 8
+
+# all the resulting  bw were scaled using the scalregions command:
+singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif   computeMatrix scale-regions   --scoreFileName VEL1-FLAG-6WT0.bw VEL1-FLAG-6WT0-input.bw VEL1-FLAG-NV.bw VEL1-FLAG-NV-input.bw VIN3-eGFP-6WT0.bw VIN3-eGFP-6WT0-input.bw VIN3-eGFP-NV.bw VIN3-eGFP-NV-input.bw VRN5-YFP-6WT0.bw VRN5-YFP-6WT0-input.bw VRN5-YFP-NV.bw VRN5-YFP-NV-input.bw CLF-GFP.bw SWN-GFP.bw  --samplesLabel vel1_cold-IP vel1_cold-Input vel1_nv-IP vel1_nv-Input vin3_cold-IP vin3_cold-Input vin3_nv-IP vin3_nv-Input vrn5_cold-IP vrn5_cold-Input vrn5_nv-IP vrn5_nv-Input CLF-GFP SWN-GFP  -R tss-test-from-exons-gene.bed  --beforeRegionStartLength 3000     --regionBodyLength 5000  --afterRegionStartLength 3000   --skipZeros -o mega100_clf_swn.mat.gz   --numberOfProcessors 16 
+
+# using the shades of following colours pallete
+singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif     plotProfile  --plotHeight 14 --plotWidth 12 --yAxisLabel "RPGC" -m mega100_clf_swn.mat.gz  --plotFileFormat pdf  -out bwa-nodup-mega-per-group-rgb-100-profile.pdf    --numPlotsPerRow 1  --plotTitle "100bp resolution" --outFileNameData MATRIX100P/myProfile100bin.tab   --perGroup   --colors "#9f6867" "#c39d9b" "#e6d4d3" "#eee2e2" "#949418" "#c8c385" "#d2cd99" "#eeebd5" "#007f9b" "#8db7c8" "#c6dbe3" "#d9e7ec" "#FFF200FF" "#A2FF00FF" 
+
+
+```
 
 
 
