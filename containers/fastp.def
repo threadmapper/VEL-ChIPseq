@@ -1,0 +1,31 @@
+Bootstrap: localimage
+From: miniconda3.simg
+
+
+%labels
+    maintainer Jitender(CSB)
+    application Fastp
+    applicationversion 0.1
+    institute JIC
+    provides Fastp
+
+%environment
+    export LANG=C
+    export PATH=/opt/miniconda3/bin:$PATH
+
+
+%post
+    # We can use Anacoda3-4.2.0 = python3.5, dont have the url for that since we have a local miniconda3 image so lets use this
+
+#    MINICONDA_PATH=/opt/miniconda3/bin
+    export PATH=/opt/miniconda3/bin:$PATH
+
+    apt-get install -y unzip
+    conda clean --all --yes
+
+    cd /opt
+    conda install -y -c  bioconda  fastp trimmomatic fastqc
+ 
+    echo $PATH
+
+    echo Done
