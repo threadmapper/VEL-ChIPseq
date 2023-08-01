@@ -166,7 +166,9 @@ Methods
 
 - Raw reads as fastq files can be downloaded from the SRA archive, file names and the samples named are under `metadata-13351040-submitted.tsv`
 - Files are downloaded to a directory and also the raw reads from the published above.
-- Fastqc-0.11.3 was run on each fastq file and the read were cleaned using `fastp`
+- FastQC v0.11.9 were used to check the stats before and after read cleaning
+- We run on each fastq file and the read were cleaned using `fastp`(fastp 0.20.1)
+- Both fastqc and fastp were ran through singularity container(definition files are availible under the containers subdirectory)
 
 ```bash
 # Download fastq files as under 
