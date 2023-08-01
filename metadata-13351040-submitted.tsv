@@ -1,0 +1,49 @@
+sample_name	library_ID	title	library_strategy	library_source	library_selection	library_layout	platform	instrument_model	design_description	filetype	fasta_file	assembly	filename	filename2	filename3	filename4	filename5	filename6	filename7	filename8
+ColFRI NV  (For GFP-ColFR) input Rep1	FRI_NV_GFP_Input_1	ColFRI NV  (For GFP-ColFR) input Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-input-For-GFP-ColFR-Rep1.fq.gz							
+ColFRI NV  (For GFP-ColFR) input Rep2	FRI_NV_GFP_Input_2	ColFRI NV  (For GFP-ColFR) input Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-input-For-GFP-ColFR-Rep2.fq.gz							
+ColFRI NV  (for ColFRI-FLAG) Rep1	FRI_NV_FLAG_IP_1	ColFRI NV  (for ColFRI-FLAG) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-IP-for-ColFRI-FLAG-Rep1.fq.gz							
+ColFRI NV  (for ColFRI-FLAG) Rep2	FRI_NV_FLAG_IP_2	ColFRI NV  (for ColFRI-FLAG) Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-IP-for-ColFRI-FLAG-Rep2.fq.gz							
+VEL1-FLAG NV input rep1	VEL1_NV_input_1	VEL1-FLAG NV input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-input-rep1.fq.gz							
+VEL1-FLAG NV input rep2	VEL1_NV_input_2	VEL1-FLAG NV input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-input-rep2.fq.gz							
+VEL1-FLAG NV input rep3	VEL1_NV_input_3	VEL1-FLAG NV input rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-input-rep3.fq.gz							
+VIN3-eGFP NV input rep1	VIN3_NV_input_1	VIN3-eGFP NV input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-NV-input-rep1.fq.gz							
+VIN3-eGFP NV input rep2	VIN3_NV_input_2	VIN3-eGFP NV input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-NV-input-rep2.fq.gz							
+VRN5-YFP NV input rep1	VRN5_NV_input_1	VRN5-YFP NV input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-input-rep1.fq.gz							
+VRN5-YFP NV input rep2	VRN5_NV_input_2	VRN5-YFP NV input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-input-rep2.fq.gz							
+VRN5-YFP NV input rep3	VRN5_NV_input_3	VRN5-YFP NV input rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-input-rep3.fq.gz							
+ColFRI 6WT0 Input (For GFP-ColFR) Rep1	FRI_V_GFP_input_1	ColFRI 6WT0 Input (For GFP-ColFR) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-Input-For-GFP-ColFR-Rep1.fq.gz							
+ColFRI 6WT0 Input (For GFP-ColFR) Rep2	FRI_V_GFP_input_2	ColFRI 6WT0 Input (For GFP-ColFR) Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-Input-For-GFP-ColFR-Rep2.fq.gz							
+ColFRI 6WT0 Input (for ColFRI-FLAG) Rep1	FRI_V_FLAG_Input	ColFRI 6WT0 Input (for ColFRI-FLAG) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-Input-for-ColFRI-FLAG-Rep1.fq.gz							
+VEL1-FLAG 6WT0 input rep1	VEL1_V_input_1	VEL1-FLAG 6WT0 input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-input-rep1.fq.gz							
+VEL1-FLAG 6WT0 input rep2	VEL1_V_input_2	VEL1-FLAG 6WT0 input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-input-rep2.fq.gz							
+VEL1-FLAG 6WT0 input rep3	VEL1_V_input_3	VEL1-FLAG 6WT0 input rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-input-rep3.fq.gz							
+VIN3-eGFP 6WT0 input rep1	VIN3_V_input_1	VIN3-eGFP 6WT0 input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-input-rep1.fq.gz							
+VIN3-eGFP 6WT0 input rep2	VIN3_V_input_2	VIN3-eGFP 6WT0 input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-input-rep2.fq.gz							
+VIN3-eGFP 6WT0 input rep3	VIN3_V_input_3	VIN3-eGFP 6WT0 input rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-input-rep3.fq.gz							
+VRN5-YFP 6WT0 input rep1	VRN5_V_input_1	VRN5-YFP 6WT0 input rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-input-rep1.fq.gz							
+VRN5-YFP 6WT0 input rep2	VRN5_V_input_2	VRN5-YFP 6WT0 input rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-input-rep2.fq.gz							
+VRN5-YFP 6WT0 input rep3	VRN5_V_input_3	VRN5-YFP 6WT0 input rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-input-rep3.fq.gz							
+ColFRI NV  (For GFP-ColFR) Rep1	FRI_NV_GFP_IP_1	ColFRI NV  (For GFP-ColFR) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-IP-For-GFP-ColFR-Rep1.fq.gz							
+ColFRI NV  (For GFP-ColFR) Rep2	FRI_NV_GFP_IP_2	ColFRI NV  (For GFP-ColFR) Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-IP-For-GFP-ColFR-Rep2.fq.gz							
+ColFRI NV  (for ColFRI-FLAG) input Rep1	FRI_NV_FLAG_input_1	ColFRI NV  (for ColFRI-FLAG) input Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-input-for-ColFRI-FLAG-Rep1.fq.gz							
+ColFRI NV  (for ColFRI-FLAG) input Rep2	FRI_NV_FLAG_input_2	ColFRI NV  (for ColFRI-FLAG) input Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-NV-input-for-ColFRI-FLAG-Rep2.fq.gz							
+VEL1-FLAG NV  rep1	VEL1_NV_IP_1	VEL1-FLAG NV  rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-rep1.fq.gz							
+VEL1-FLAG NV  rep2	VEL1_NV_IP_2	VEL1-FLAG NV  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-rep2.fq.gz							
+VEL1-FLAG NV  rep3	VEL1_NV_IP_3	VEL1-FLAG NV  rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-NV-rep3.fq.gz							
+VIN3-eGFP NV  rep1	VIN3_NV_IP_1	VIN3-eGFP NV  rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-NV-rep1.fq.gz							
+VIN3-eGFP NV  rep2	VIN3_NV_IP_2	VIN3-eGFP NV  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-NV-rep2.fq.gz							
+VRN5-YFP NV  rep1	VRN5_NV_IP_1	VRN5-YFP NV  rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-rep1.fq.gz							
+VRN5-YFP NV  rep2	VRN5_NV_IP_2	VRN5-YFP NV  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-rep2.fq.gz							
+VRN5-YFP NV  rep3	VRN5_NV_IP_3	VRN5-YFP NV  rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-NV-rep3.fq.gz							
+ColFRI 6WT0  (For GFP-ColFR) Rep1	FRI_V_GFP_IP_1	ColFRI 6WT0  (For GFP-ColFR) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-For-GFP-ColFR-Rep1.fq.gz							
+ColFRI 6WT0  (For GFP-ColFR) Rep2	FRI_V_GFP_IP_2	ColFRI 6WT0  (For GFP-ColFR) Rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-For-GFP-ColFR-Rep2.fq.gz							
+ColFRI 6WT0  (for ColFRI-FLAG) Rep1	FRI_V_FLAG_IP	ColFRI 6WT0  (for ColFRI-FLAG) Rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			ColFRI-6WT0-for-ColFRI-FLAG-Rep1.fq.gz							
+VEL1-FLAG 6WT0 rep1	VEL1_V_IP_1	VEL1-FLAG 6WT0 rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-rep1.fq.gz							
+VEL1-FLAG 6WT0  rep2	VEL1_V_IP_2	VEL1-FLAG 6WT0  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-rep2.fq.gz							
+VEL1-FLAG 6WT0  rep3	VEL1_V_IP_3	VEL1-FLAG 6WT0  rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VEL1-FLAG-6WT0-rep3.fq.gz							
+VIN3-eGFP 6WT0  rep1	VIN3_V_IP_1	VIN3-eGFP 6WT0  rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-rep1.fq.gz							
+VIN3-eGFP 6WT0  rep2	VIN3_V_IP_2	VIN3-eGFP 6WT0  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-rep2.fq.gz							
+VIN3-eGFP 6WT0  rep3	VIN3_V_IP_3	VIN3-eGFP 6WT0  rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VIN3-eGFP-6WT0-rep3.fq.gz							
+VRN5-YFP 6WT0  rep1	VRN5_V_IP_1	VRN5-YFP 6WT0  rep1	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-rep1.fq.gz							
+VRN5-YFP 6WT0  rep2	VRN5_V_IP_2	VRN5-YFP 6WT0  rep2	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-rep2.fq.gz							
+VRN5-YFP 6WT0  rep3	VRN5_V_IP_3	VRN5-YFP 6WT0  rep3	ChIP-Seq	GENOMIC	ChIP	single	BGISEQ	BGISEQ-500	BGISEQ-500 Library protocol	fastq			VRN5-YFP-6WT0-rep3.fq.gz							
