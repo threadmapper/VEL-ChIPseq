@@ -260,4 +260,17 @@ singularity exec ~/BUILD/DEEPTOOLS/deeptools.sif     plotProfile  --plotHeight 1
 ```
 
 
+Effective Genome size
+----------------------
+
+- We find the effective genome size using epic
+- We find kmers size to 50 
+
+```
+We downloaded the raw reads from SRA archive and after cleaning the read with fastp we mapped to TAIR10 genome using bwa (version 0.5.7) with the parameters ‘bwa aln -q 5 -l 32 -k 2’ as recommended by Encode guidelines. The mapping result were sorted, filtered and merged using samtools(version 1.17), sambamba (v1.0.0) and bamtools (v2.5.2). Duplicate reads were marked using picard (v3.0.0).   The normalized coverage was extracted using bamCoverage  and computeMatrix from deepTools (v3.5.1). The uniquely and without PCR reads were further used for the peak calling with macs3 (v3.0.0a7) using the parameters ‘callpeak -f BAM -g 113582948  -q 0.05  --bdg  --nomodel’ . The resulting peaks were further filtered by different cutoffs. Effective genome size was found using the epic-effective utility from epic (v0.2.12).
+```
+
+
+
+
 
