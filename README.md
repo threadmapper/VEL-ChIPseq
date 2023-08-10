@@ -449,6 +449,18 @@ using scripts `bedtools-intersector-own-q10.py`, this compared multipel bed inte
 
 ```
 
+Gene list
+---------
+
+- Gene was assign to a peak if it was within 1kb of a peak summit and nearest gene's TSS
+- If a gene was common to more than one replicate, the consensu gene sets were made
+
+```
+- gather_survival-1KB-vel1.py
+- find-genes-common-in-two-reps-final.py
+```
+
+
 
 
 
