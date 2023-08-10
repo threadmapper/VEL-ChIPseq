@@ -266,9 +266,109 @@ Effective Genome size
 - We find the effective genome size using epic
 - We find kmers size to 50 
 
+Mapping and Peak calling
+-------------------------
+
+
+We downloaded the raw reads from SRA archive and after cleaning the read with fastp we mapped to TAIR10 genome using bwa (version 0.5.7) with the parameters ‘bwa aln -q 5 -l 32 -k 2’ as recommended by Encode guidelines. The mapping result were sorted, filtered and merged using samtools(version 1.17), sambamba (v1.0.0) and bamtools (v2.5.2). Duplicate reads were marked using picard (v3.0.0).   The normalized coverage was extracted using bamCoverage  and computeMatrix from deepTools (v3.5.1). The uniquely and without PCR reads were further used for the peak calling with macs3 (v3.0.0a7) using the parameters ‘callpeak -f BAM -g 113582948  -q 0.05  --bdg  --nomodel’. The resulting peaks were further filtered by different cutoffs. Effective genome size was found using the epic-effective utility from epic (v0.2.12).
+
+
+Mapping 
+---------
+
+- BWA aln was used
+- Using 8 cpu cores
+
+````
+step 1: Mapping was done
+
+#aln -t using 8 threads
+# -l 32        seed length
+# -k 2         mismatches allowed in seed
+# -q 5
+# these parameters are from Encode recommendation
+
+mkdir -p BAM
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  ../sra/VEL1-FLAG-NV-input-rep2.fq.gz  > VEL1-FLAG-NV-input-rep2.sai
+ 
+sleep 2s
+
+#for bwa samse: we are building sam
+singularity exec ~/BUILD/VERN/idr_bwa.sif bwa samse ../ref/TAIR10Genome.fasta  VEL1-FLAG-NV-input-rep2.sai ../sra/VEL1-FLAG-NV-input-rep2.fq.gz  > VEL1-FLAG-NV-input-rep2.sam
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools view -bt ../ref/TAIR10Genome.fasta  -o VEL1-FLAG-NV-input-rep2_unsorted.bam  VEL1-FLAG-NV-input-rep2.sam
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -@ 8  -o  BAM/VEL1-FLAG-NV-input-rep2.bam  VEL1-FLAG-NV-input-rep2_unsorted.bam
+ 
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    BAM/VEL1-FLAG-NV-input-rep2.bam 
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat BAM/VEL1-FLAG-NV-input-rep2.bam  >  VEL1-FLAG-NV-input-rep2.stat
+
+# BAM Filtering 
+
+
+mkdir -p FINAL_BAM 
+
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif sambamba view -t 8 -h -f bam -F "mapping_quality >= 1 and not (unmapped or secondary_alignment) and not ([XA] != null or [SA] != null)" ../BAM/VEL1-FLAG-NV-input-rep2.bam -o VEL1-FLAG-NV-input-rep2_uniq.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools index VEL1-FLAG-NV-input-rep2_uniq.bam 
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools flagstat VEL1-FLAG-NV-input-rep2_uniq.bam  > VEL1-FLAG-NV-input-rep2_uniq.stat
+
+
+# remove reads without MAPQ>=30
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools view -@ 8  -F 772  -b VEL1-FLAG-NV-input-rep2_uniq.bam  Chr1 Chr2 Chr3 Chr4 Chr5 -o FILTER/VEL1-FLAG-NV-input-rep2.filter_unsorted.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools sort -@ 8  -o FILTER/VEL1-FLAG-NV-input-rep2.filter.bam  FILTER/VEL1-FLAG-NV-input-rep2.filter_unsorted.bam
+
+# Index filtered reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools  index    FILTER/VEL1-FLAG-NV-input-rep2.filter.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif samtools  flagstat FILTER/VEL1-FLAG-NV-input-rep2.filter.bam  > FILTER/VEL1-FLAG-NV-input-rep2.filter.bam.stat
+
+
+
+sleep 5s
+
+# mark duplicates with picard
+singularity exec ~/BUILD/VERN/idr_bwa.sif picard MarkDuplicates I=FILTER/VEL1-FLAG-NV-input-rep2.filter.bam O=FILTER/VEL1-FLAG-NV-input-rep2.dupmark_unsorted.bam  M=FILTER/VEL1-FLAG-NV-input-rep2.dup.qc  VALIDATION_STRINGENCY=LENIENT  REMOVE_DUPLICATES=false ASSUME_SORTED=true
+
+sleep 5s
+
+# sort reads after marking the duplicates
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -@ 8 -o FILTER/VEL1-FLAG-NV-input-rep2.dupmark.bam  FILTER/VEL1-FLAG-NV-input-rep2.dupmark_unsorted.bam
+
+# index the sorted reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    FILTER/VEL1-FLAG-NV-input-rep2.dupmark.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat FILTER/VEL1-FLAG-NV-input-rep2.dupmark.bam > FILTER/VEL1-FLAG-NV-input-rep2.dupmark.bam.stat
+
+
+# remove duplicates
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools view -@ 8  -F 1796  -b FILTER/VEL1-FLAG-NV-input-rep2.dupmark.bam -o  FILTER/VEL1-FLAG-NV-input-rep2.dupmark.nodup_unsorted.bam
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -@ 8  -o FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam  FILTER/VEL1-FLAG-NV-input-rep2.dupmark.nodup_unsorted.bam
+
+# index unique reads
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  index     FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  flagstat  FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam >  FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam.stat
+
+
+# Following lines were used  to cehck the output
+
+"""
+Check the unique named reads
+samtools view  35S_GFP_input_control.bam | cut -f 1  > read_names.txt
+"""
+from collections import Counter
+
+red = Counter()
+with open('read_names.txt') as inp:
+    for line in inp:
+        red[line.strip()] += 1
+
+print(red.most_common(10))
+
 ```
-We downloaded the raw reads from SRA archive and after cleaning the read with fastp we mapped to TAIR10 genome using bwa (version 0.5.7) with the parameters ‘bwa aln -q 5 -l 32 -k 2’ as recommended by Encode guidelines. The mapping result were sorted, filtered and merged using samtools(version 1.17), sambamba (v1.0.0) and bamtools (v2.5.2). Duplicate reads were marked using picard (v3.0.0).   The normalized coverage was extracted using bamCoverage  and computeMatrix from deepTools (v3.5.1). The uniquely and without PCR reads were further used for the peak calling with macs3 (v3.0.0a7) using the parameters ‘callpeak -f BAM -g 113582948  -q 0.05  --bdg  --nomodel’ . The resulting peaks were further filtered by different cutoffs. Effective genome size was found using the epic-effective utility from epic (v0.2.12).
-```
+
+
 
 
 
