@@ -402,5 +402,18 @@ The resulting narrow peak files were renamed to the biological simpler names usi
 
 ```
 
+PEAK filtering
+---------------
+
+- We drop a peak it appears in more than one control samples using see for ex. `black-list-by-control-peaks-VEL1.py` and `survived-peaks-not-more-than-one-control-VEL1.py`
+- The filtered peak were further filtered at various Q score cut off, `gen_peaks_at_thresholds-vel1.py`
+- At each cutoff the peaks consensus common regions( or peak segments) were extacted using `bedtools multiinter`
+
+```
+
+```
+
+
+
 
 
