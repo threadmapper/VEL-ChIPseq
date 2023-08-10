@@ -409,10 +409,6 @@ PEAK filtering
 - The filtered peak were further filtered at various Q score cut off, `gen_peaks_at_thresholds-vel1.py`
 - At each cutoff the peaks consensus common regions( or peak segments) were extacted using `bedtools multiinter`
 
-```
-
-```
-
 
 Peak calling: Histone markers
 -----------------------------
@@ -440,6 +436,21 @@ singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    BAM/BASE.bam
 singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat BAM/BASE.bam  >  BASE.stat
 
 ```
+
+Peak share overlap plot
+-----------------------
+
+- The peaks that were obtained with bedtools multi-intersector give a consensus regions (peak segments)
+- If they peak segment by definition is present in most replicates (2/3) or (4/3) those region were compared across samples using bedtools
+
+```
+using scripts `bedtools-intersector-own-q10.py`, this compared multipel bed intersetion results across samples and plot a heatmap for a percentage share
+
+
+```
+
+
+
 
 
 
