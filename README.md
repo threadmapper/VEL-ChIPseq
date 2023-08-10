@@ -69,12 +69,10 @@ GSM2916534 	CLF-GFP Rep2
 GSM2916535 	SWN-GFP Rep1
 GSM2916536 	SWN-GFP Rep2
 GSM2916537 	35S_GFP (input)
-```
+
 
 - Shu J, Chen C, Thapa RK, Bian S et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct 2019 Jan;3(1):e00100. PMID: 31245749
 -	Shu, J, Chen, C, Thapa, RK, et al. Genome-wide occupancy of histone H3K27 methyltransferases CURLY LEAF and SWINGER in Arabidopsis seedlings. Plant Direct. 2019; 3: 1-14.
-
-```
 
 # CLF and SWN 
 GSM2916533      CLF-GFP Rep1               SRX3544214 (GSM2916533: CLF-GFP Rep1; Arabidopsis thaliana; ChIP-Seq)
@@ -250,7 +248,7 @@ Mapping
 - BWA aln was used
 - Using 8 cpu cores
 
-````
+```bash
 step 1: Mapping was done
 
 #aln -t using 8 threads
@@ -322,7 +320,7 @@ singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  index     FINAL_BAM/VEL1-FL
 singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  flagstat  FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam >  FINAL_BAM/VEL1-FLAG-NV-input-rep2.bam.stat
 
 
-# Following lines were used  to cehck the output
+# Following lines were used  to check the output
 
 """
 Check the unique named reads
@@ -392,7 +390,7 @@ PEAK calling
 - We called peak on each pair of bam files
 - The default parameters were used
 
-```
+```bash
 Typical run:
 
 mkdir -p CLF-GFP-Rep1
@@ -417,15 +415,14 @@ Peak calling: Histone markers
 - The rest of processing and  BAM filtering was similar to the narrowpeaks
 
 
-```
-#singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_FWD    > BASE_1.sai
-#singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_REV    > BASE_2.sai
- 
+```bash
+singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_FWD    > BASE_1.sai
+singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_REV    > BASE_2.sai
+
 sleep 2s
 
-#for bwa sampe: we are building sam
+# for bwa sampe: we are building sam
 singularity exec ~/BUILD/VERN/idr_bwa.sif bwa sampe ../ref/TAIR10Genome.fasta   BASE_1.sai  BASE_2.sai   FASTQ_FWD  FASTQ_REV  > BASE.sam
-
 
 singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools view -bt ../ref/TAIR10Genome.fasta -o BASE_unsorted.bam  BASE.sam
 
