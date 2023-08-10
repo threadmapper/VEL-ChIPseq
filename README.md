@@ -386,6 +386,21 @@ singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools  flagstat   ColFRI-NV-IP-For
 
 ```
 
+PEAK calling
+-------------
+
+- We called peak on each pair of bam files
+- The default parameters were used
+
+```
+Typical run:
+
+mkdir -p CLF-GFP-Rep1
+singularity exec /hpc-home/cheemaj/BUILD/MACS3/macs3_a7.simg macs3  callpeak -t ../CLF-GFP-Rep1.bam  -c  ../35S_GFP_input_control.bam  -f BAM -g 113582948  -q 0.05  --bdg --outdir CLF-GFP-Rep1  -n CLF-GFP-Rep1  --nomodel   
+
+The resulting narrow peak files were renamed to the biological simpler names using the naming "protein-conditions-treatment-input-reps.tab"
+
+```
 
 
 
