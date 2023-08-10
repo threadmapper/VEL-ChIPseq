@@ -414,6 +414,34 @@ PEAK filtering
 ```
 
 
+Peak calling: Histone markers
+-----------------------------
+
+- The broad peaks were called for markers and the data was paired end reads
+- The rest of processing and  BAM filtering was similar to the narrowpeaks
+
+
+```
+#singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_FWD    > BASE_1.sai
+#singularity exec ~/BUILD/VERN/idr_bwa.sif bwa aln -q 5 -l 32 -k 2 -t 8 ../ref/TAIR10Genome.fasta  FASTQ_REV    > BASE_2.sai
+ 
+sleep 2s
+
+#for bwa sampe: we are building sam
+singularity exec ~/BUILD/VERN/idr_bwa.sif bwa sampe ../ref/TAIR10Genome.fasta   BASE_1.sai  BASE_2.sai   FASTQ_FWD  FASTQ_REV  > BASE.sam
+
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools view -bt ../ref/TAIR10Genome.fasta -o BASE_unsorted.bam  BASE.sam
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools sort -@ 8  -o  BAM/BASE.bam  BASE_unsorted.bam
+ 
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools index    BAM/BASE.bam 
+
+singularity exec ~/BUILD/VERN/idr_bwa.sif  samtools flagstat BAM/BASE.bam  >  BASE.stat
+
+```
+
+
 
 
 
